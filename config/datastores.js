@@ -51,9 +51,6 @@ module.exports.datastores = {
     // adapter: 'sails-mysql',
     // url: 'mysql://root@localhost:3306/buming_db',
 
-    adapter: 'sails-postgresql',
-    url: process.env.DATABASE_URL,
-
   },
 
 

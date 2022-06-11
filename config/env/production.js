@@ -47,6 +47,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
+      // adapter: 'sails-postgresql',
+      // url: process.env.DATABASE_URL,
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -148,9 +150,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      allowOrigins: [
-        'https://buming.herokuapp.com',
-      ]
+      // allowOrigins: [
+      //   'https://buming.herokuapp.com',
+      // ]
     },
 
   },
@@ -221,7 +223,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cookie: {
-      // secure: true,
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000,  // 24 hours
     },
 
