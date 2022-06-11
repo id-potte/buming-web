@@ -1,0 +1,45 @@
+<div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <%- partial('../partials/buttonNew.ejs', {modul: 'articel' }) %>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-stripped display nowrap table-hover table-bordered table-sm dataTabel"
+                id="tabelPolsek" style="font-size:13px">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Judul</th>
+                        <th>Tanggal Publish</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var i = 1; %> 
+                    <% articels.forEach(data=> { %>
+                        <tr>
+                            <td>
+                                <%= i++ %>
+                            </td>
+                            <td>
+                                <%= data.title %>
+                            </td>
+                            <td>
+                                <%= new Date(data.createdAt).toISOString().slice(0, 10) %>
+                            </td>
+                            <td class="text-center">
+                                <a href="/articel/<%= data.id %>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                                <button type="button" class="btn btn-danger btn-sm bthapus" data-kode="<%= data.id %>" data-nama="<%= data.title %>"
+                                    data-route="/articel/"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

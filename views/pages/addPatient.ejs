@@ -1,0 +1,187 @@
+<div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
+    <div class="card-header">
+        <%- partial('../partials/buttonBack.ejs', {modul: 'patient' }) %>
+    </div>
+    <div class="card-body">
+        <form action="/patient" method="POST">
+            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+            <div class="card">
+                <div class="card-body">
+                    <h4>Identitas Ibu Hamil</h4>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nik">NIK</label>
+                            <input type="text" class="form-control" name="nik" id="nik" required="" placeholder="nomor induk kependudukan">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="name">Nama</label>
+                            <input type="text" class="form-control" name="name" id="name" required="" placeholder="nama lengkap">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="phone_number">Nomor HP</label>
+                            <input type="text" class="form-control" name="phone_number" id="phone_number" required="" placeholder="08XXX">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="address">Alamat</label>
+                            <input type="text" class="form-control" name="address" id="address" required="" placeholder="input alamat">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="age">Umur</label>
+                            <input type="number" class="form-control" name="age" id="age" required="" value="18">
+                        </div>          
+                        <div class="form-group col-md-2">
+                            <label for="blood_type">Golongan Darah</label>
+                            <select class="form-control" name="blood_type" id="blood_type" required="">
+                                <option value="">-pilih-</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="mariage_age">Lama Pernikahan</label>
+                            <input type="number" class="form-control" name="mariage_age" id="mariage_age" required="" value="1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="ethnic">Suku</label>
+                            <select class="form-control" name="ethnic" id="ethnic" required="">
+                                <option value="">-pilih-</option>
+                                <% ethnic.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="religion">Agama</label>
+                            <select class="form-control" name="religion" id="religion" required="">
+                                <option value="">-pilih-</option>
+                                <% religion.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="education">Pendidikan</label>
+                            <select class="form-control" name="education" id="education" required="">
+                                <option value="">-pilih-</option>
+                                <% education.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="profession">Pekerjaan</label>
+                            <select class="form-control" name="profession" id="profession" required="">
+                                <option value="">-pilih-</option>
+                                <% profession.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="bpjs_number">NO JKN/BPJS</label>
+                            <input type="text" class="form-control" name="bpjs_number" id="bpjs_number" required="" placeholder="nomor asuransi kesehatan">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="checkup_address">Tempat Periksa</label>
+                            <input type="text" class="form-control" name="checkup_address" id="checkup_address" required="" placeholder="lokasi pemeriksaan">
+                        </div>
+                    </div>
+
+                    <hr>
+                    <h4>Identitas Suami</h4>
+                    <hr>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="husband_name">Nama</label>
+                            <input type="text" class="form-control" name="husband_name" id="husband_name" required="" placeholder="nama lengkap suami">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="husband_phone_number">Nomor HP</label>
+                            <input type="text" class="form-control" name="husband_phone_number" id="husband_phone_number" required="" placeholder="08XXX">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="husband_age">Umur</label>
+                            <input type="number" class="form-control" name="husband_age" id="husband_age" required="" value="18">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="husband_ethnic">Suku</label>
+                            <select class="form-control" name="husband_ethnic" id="husband_ethnic" required="">
+                                <option value="">-pilih-</option>
+                                <% ethnic.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="husband_religion">Agama</label>
+                            <select class="form-control" name="husband_religion" id="husband_religion" required="">
+                                <option value="">-pilih-</option>
+                                <% religion.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="husband_education">Pendidikan</label>
+                            <select class="form-control" name="husband_education" id="husband_education" required="">
+                                <option value="">-pilih-</option>
+                                <% education.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="husband_profession">Pekerjaan</label>
+                            <select class="form-control" name="husband_profession" id="husband_profession" required="">
+                                <option value="">-pilih-</option>
+                                <% profession.forEach(element=> { %>
+                                    <option value="<%= element.name %>">
+                                        <%= element.name %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="husband_address">Alamat</label>
+                            <input type="text" class="form-control" name="husband_address" id="husband_address" required="" placeholder="input alamat suami">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-info"><i class="fas fa-check-circle"></i> Simpan</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

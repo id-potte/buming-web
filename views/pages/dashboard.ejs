@@ -1,0 +1,38 @@
+<div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="/student" class="nav-link card card-statistic-2 shadow">
+                    <div class="card-icon bg-success">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <b>Mahasiswa</b>
+                        </div>
+                        <div class="card-body">
+                            <%- students %>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                <a href="/patient" class="nav-link card card-statistic-2 shadow">
+                    <div class="card-icon bg-warning">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <b>Pasien</b>
+                        </div>
+                        <div class="card-body">
+                            <%- patients %>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

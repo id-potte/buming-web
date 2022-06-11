@@ -1,0 +1,38 @@
+<div class="card card-info animate__animated animate__fadeIn animate__slow shadow-lg">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <%- partial('../partials/buttonShowModal.ejs') %>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-stripped display nowrap table-hover table-bordered table-sm dataTabel"
+                id="tabelPolsek" style="font-size:13px">
+                <thead>
+                    <tr class="text-center">
+                        <th width="25">#</th>
+                        <th>Nama</th>
+                        <th width="50">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var i = 1; %> 
+                    <% table.forEach(element=> { %>
+                        <tr>
+                            <td class="text-center">
+                                <%= i++ %>
+                            </td>
+                            <td>
+                                <%= element.name %>
+                            </td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-danger btn-sm bthapus"
+                                    data-kode=">" data-nama=""><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

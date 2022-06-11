@@ -1,0 +1,57 @@
+<div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <%- partial('../partials/buttonNew.ejs', {modul: 'patient' }) %>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-stripped display nowrap table-hover table-bordered table-sm dataTabel"
+                id="tabelPolsek" style="font-size:13px">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Nomor HP.</th>
+                        <th>Umur</th>
+                        <th>Nama Suami</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var i = 1; %> 
+                    <% patients.forEach(data=> { %>
+                        <tr>
+                            <td>
+                                <%= i++ %>
+                            </td>
+                            <td>
+                                <%= data.nik %>
+                            </td>
+                            <td>
+                                <%= data.name %>
+                            </td>
+                            <td>
+                                <%= data.phone_number %>
+                            </td>
+                            <td>
+                                <%= data.age%>
+                            </td>
+                            <td>
+                                <%= data.husband_name %>
+                            </td>
+                            <td class="text-center">
+                                <a href="/patient/<%= data.id %>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                                <button type="button" class="btn btn-danger btn-sm bthapus" data-kode="<%= data.id %>" data-nama="<%= data.name %>"
+                                    data-route="/patient/"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+
+                        <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

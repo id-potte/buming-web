@@ -1,0 +1,34 @@
+<div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
+  <div class="card-header">
+    <%- partial('../partials/buttonBack.ejs', {modul: 'articel' }) %>
+  </div>
+  <div class="card-body">
+    <form action="/articel" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      <div class="card text-left">
+        <div class="card-body">
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="title">Judul</label>
+              <input type="text" class="form-control" name="title" id="title" required="">
+            </div>
+            <div class="form-group col-md-12">
+              <label for="content">Isi Konten</label>
+              <textarea class="form-control" id="content" name="content" rows="3" required=""></textarea>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="gambar">Gambar</label>
+              <input type="file" class="form-control" id="gambar" name="gambar" required="" accept=".jpg, .png">
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-info float-right"><i class="fas fa-check-circle"></i> Simpan</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

@@ -1,0 +1,59 @@
+<div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
+  <div class="card-header">
+    <%- partial('../partials/buttonBack.ejs', {modul: 'student' }) %>
+  </div>
+  <div class="card-body">
+    <form action="/student" method="POST">
+      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+      <div class="card text-left">
+        <div class="card-body">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="nim">NIM</label>
+              <input type="text" class="form-control" name="nim" id="nim" required="">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="name">Nama</label>
+              <input type="text" class="form-control" name="name" id="name" required="">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="phone_number">Nomor HP</label>
+              <input type="text" class="form-control" name="phone_number" id="phone_number" required="">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="address">Alamat</label>
+              <input type="text" class="form-control" name="address" id="address" required="">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="age">Umur</label>
+              <input type="number" class="form-control" name="age" id="age" required="" value="18">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="study_program">Program Study</label>
+              <select class="form-control" name="study_program" id="study_program" required="">
+                <option value="">-pilih-</option>
+                <% study.forEach(element=> { %>
+                  <option value="<%= element.name %>">
+                    <%= element.name %>
+                  </option>
+                  <% }) %>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="semester">Semester</label>
+              <input type="number" class="form-control" name="semester" id="semester" required="" value="1">
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-info float-right"><i class="fas fa-check-circle"></i> Simpan</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

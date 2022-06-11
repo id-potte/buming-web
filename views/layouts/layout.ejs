@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Halaman Admin</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+
+    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
+    <%/* <meta name="robots" content="noindex"> */%>
+
+
+    <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/min/production.min.css">
+    <!--STYLES END-->
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="main-wrapper">
+        <div class="navbar-bg bg-info"></div>
+        <nav class="navbar navbar-expand-lg main-navbar">
+          <form class="form-inline mr-auto">
+            <ul class="navbar-nav mr-3">
+              <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            </ul>
+          </form>
+          <ul class="navbar-nav navbar-right">
+            <li class="dropdown"><a href="#" data-toggle="dropdown"
+                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                <img alt="image" src="/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                <div class="d-sm-none d-lg-inline-block">Hi, <%= session.admin.name %> </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a href="#" class="dropdown-item has-icon">
+                  <i class="far fa-user"></i> Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="/logout" class="dropdown-item has-icon text-danger">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="main-sidebar">
+          <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+              <a href="#">Buming</a>
+            </div>
+            <div class="sidebar-brand sidebar-brand-sm">
+              <a href="l">St</a>
+            </div>
+            <ul class="sidebar-menu">
+              <li class="menu-header">Menu</li>
+              <li><a class="nav-link" href="/dashboard"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user"></i> <span>Data</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/student">Mahasiswa</a></li>
+                  <li><a href="/patient">Pasien</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-indent"></i> <span>Master</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/master/study">Prodi</a></li>
+                  <li><a href="/master/ethnic">Suku</a></li>
+                  <li><a href="/master/religion">Agama</a></li>
+                  <li><a href="/master/education">Pendidikan</a></li>
+                  <li><a href="/master/profession">Pekerjaan</a></li>
+                </ul>
+              </li>
+              <li class="menu-header">Mobile App</li>
+              <!-- <li><a class="nav-link" href="/user"><i class="fas fa-user-plus"></i> <span>Pengguna</span></a></li>
+              <li><a class="nav-link" href="/config"><i class="fas fa-cog"></i> <span>Config</span></a></li> -->
+              <li><a class="nav-link" href="/articel"><i class="fas fa-tags"></i> <span>Artikel</span></a></li>
+            </ul>
+    
+          </aside>
+        </div>
+    
+        <!-- Main Content -->
+        <div class="main-content">
+          <section class="section">
+            <div class="section-header">
+              <h1><%= title %></h1>
+              <!-- <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="#">Layout</a></div>
+                <div class="breadcrumb-item">Default Layout</div>
+              </div> -->
+            </div>
+    
+            <div class="section-body">
+              <% flash.get('msg').forEach(function (message) { %>
+                <div class="alert alert-success" role="alert">
+                  <i class="fa fa-check mx-2"></i><%- message %>
+                </div>
+              <% }) %>
+
+              <%- body %>
+              
+            </div>
+          </section>
+        </div>
+        <footer class="main-footer">
+          <div class="footer-left">
+            Copyright &copy; 2022 <div class="bullet"></div>
+            <!-- Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a> -->
+          </div>
+          <div class="footer-right">
+            2.3.0
+          </div>
+        </footer>
+      </div>
+    </div>
+    
+
+      <!-- Modal add-->
+      <div class="modal fade" id="modalAdd" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <form class="needs-validation" novalidate="" method="POST" action="/master">
+              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Tambah</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label>Nama</label>
+                  <input type="text" class="form-control" name="name" id="name" required="" autofocus>
+                  <input type="hidden" class="form-control" name="master" id="master" required="">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-icon icon-left btn-info"><i class="fas fa-check"></i>
+                  Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Modal add user-->
+      <div class="modal fade" id="modalAddUser" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <form class="needs-validation" novalidate="" method="POST" action="/user">
+              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Tambah</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label>Nama</label>
+                  <select class="form-control" name="username" id="username">
+                    <option value="">-pilih-</option>
+                  </select>
+                  <small class="form-text text-muted">Nomor HP digunakan sebagai <strong>Username</strong>.</small>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" name="password" id="password" required="">
+                  <input type="hidden" name="access" id="access" required="">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-icon icon-left btn-info"><i class="fas fa-check"></i>
+                  Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like React, Vue.js, Angular, Ember, and Backbone
+        require that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different view engine (handlebars, dust, pug/jade, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <!--TEMPLATES END-->
+
+
+    <!--
+        Server-side View Locals
+        ========================
+
+        Sometimes, it's convenient to get access to your server-side view locals from
+        client-side JavaScript.  This can improve page load times, remove the need for
+        extra AJAX requests, and make your client-side code easier to understand and
+        to maintain.  Sails provides a simple mechanism for accessing dynamic view
+        locals: the "exposeLocalsToBrowser()" view partial.
+
+        For more information on using this built-in feature, see:
+        https://sailsjs.com/docs/concepts/views/locals#?escaping-untrusted-data-using-exposelocalstobrowser
+
+    -->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+    <!-- General JS Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <!--SCRIPTS-->
+    <script src="/min/production.min.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

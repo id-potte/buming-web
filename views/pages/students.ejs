@@ -1,0 +1,67 @@
+<div class="card card-info animate__animated animate__fadeIn animate__slow shadow-lg">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <%- partial('../partials/buttonNew.ejs', {modul: 'student'}) %>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-stripped display nowrap table-hover table-bordered table-sm dataTabel"
+                id="tabelPolsek" style="font-size:13px">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Nomor HP.</th>
+                        <th>Umur</th>
+                        <th>Alamat</th>
+                        <th>Program Studi</th>
+                        <th>Semester</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var i = 1; %> 
+                    <% students.forEach(data => { %>
+                     
+                    <tr>
+                        <td>
+                           <%= i++ %> 
+                        </td>
+                        <td>
+                            <%= data.nim %>
+                        </td>
+                        <td>
+                            <%= data.name %>
+                        </td>
+                        <td>
+                            <%= data.phone_number %>
+                        </td>
+                        <td>
+                            <%= data.age %>
+                        </td>
+                        <td>
+                            <%= data.address%>
+                        </td>
+                        <td>
+                            <%= data.study_program %>
+                        </td>
+                        <td>
+                            <%= data.semester %>
+                        </td>
+                        <td class="text-center">
+                            <a href="/student/<%= data.nim %>" class="btn btn-info btn-sm"><i
+                                    class="fa fa-edit"></i></a>
+                            <button type="button" class="btn btn-danger btn-sm bthapus" data-kode="<%= data.id %>"
+                                data-nama="<%= data.name %>" data-route="/student/"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    
+                    <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
