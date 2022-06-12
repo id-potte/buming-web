@@ -50,7 +50,11 @@ module.exports.datastores = {
     ***************************************************************************/
     // adapter: 'sails-mysql',
     // url: 'mysql://root@localhost:3306/buming_db',
-    ssl: true,
+    adapter: 'sails-postgresql',
+    // url: process.env.DATABASE_URL,
+    url: 'postgres://onukzbdmipaaja:7a1e5142e51e6a7829e6e7ecf8951302ce6d195d47d2fa78aa55c090a46c2bae@ec2-52-204-195-41.compute-1.amazonaws.com:5432/d1nvh97reg0pfn',
+    // ssl: true,
+    ssl: { rejectUnauthorized: false },
   },
 
 

@@ -47,8 +47,6 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      adapter: 'sails-postgresql',
-      url: process.env.DATABASE_URL,
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -375,7 +373,7 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
+    baseUrl: 'https://buming.herokuapp.com',
     internalEmailAddress: 'support@example.com',
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
