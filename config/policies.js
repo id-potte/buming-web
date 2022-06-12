@@ -22,6 +22,4 @@ module.exports.policies = {
   'index': true,
   'login': true,
 
-  '*':true,
-
 };
