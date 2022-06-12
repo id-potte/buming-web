@@ -50,7 +50,7 @@ module.exports.datastores = {
     ***************************************************************************/
     // adapter: 'sails-mysql',
     // url: 'mysql://root@localhost:3306/buming_db',
-
+    ssl: true,
   },
 
 
