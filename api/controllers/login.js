@@ -41,7 +41,6 @@ module.exports = {
     await sails.helpers.passwords.checkPassword(password, admin.password).intercept('incorrect', 'badCombo');
 
     this.req.session.admin = admin;
-
     return this.res.redirect('/dashboard');
   }
 };

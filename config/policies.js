@@ -21,5 +21,4 @@ module.exports.policies = {
   'create': true,
   'index': true,
   'login': true,
-
 };
