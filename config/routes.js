@@ -42,13 +42,7 @@ module.exports.routes = {
 
   'GET /master/:name': { action: 'master/index'},
   'POST /master': { action: 'master/create'},
-  'DELETE /master/:id': { action: 'master/destroy'},
-
-  'GET /user': { action: 'user/index'},
-  'GET /user/:access': { action: 'user/new'},
-  'POST /user': { action: 'user/create'},
-  'DELETE /user/:id': { action: 'user/destroy'},
-
+  'DELETE /master/:name/:id': { action: 'master/destroy'},
 
   'GET /articel': { action: 'articel/index'},
   'GET /articel/:id': { action: 'articel/show'},

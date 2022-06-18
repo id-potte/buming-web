@@ -34,7 +34,7 @@ function hapusdata(kode, nama, route) {
         $.ajax({
         type: 'delete',
         url: route + kode,
-        data: {_csrf: window.SAILS_LOCALS._csrf},
+        // data: {_csrf: window.SAILS_LOCALS._csrf},
         beforeSend: function () {
             swal.fire({
             title: 'Tunggu...',

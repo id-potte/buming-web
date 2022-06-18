@@ -16,9 +16,20 @@ module.exports.policies = {
   * (`true` allows public access)                                            *
   *                                                                          *
   ***************************************************************************/
-  '*': false,
-  '*': 'isAdmin',
-  'create': true,
-  'index': true,
-  'login': true,
+ '*': true,
+  // 'dashboard/*': 'isAdmin',
+  // 'student/*': 'isAdmin',
+  // 'patient/*': 'isAdmin',
+  // 'articel/*': 'isAdmin',
+  // 'master/*': 'isAdmin',
+
+  // // 'create': true,
+  // // 'index': true,
+  // // 'login': true,
+
+  // // 'AuthController': {
+  // //   'cek_phone': true,
+  // //   'cek_otp': true,
+  // // },
+  // 'api/v1/student/*': true,
 };
