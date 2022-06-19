@@ -12,7 +12,7 @@ module.exports = {
   cek_phone: async function(req, res){
     let phone = req.param('nomor');
     
-    let user = await Student.findOne({phone_number: phone});
+    let user = await Student.find({phone_number: phone});
 
     if (user) {
       return res.json({
