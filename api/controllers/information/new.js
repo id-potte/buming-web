@@ -15,7 +15,7 @@ module.exports = {
   exits: {
     success: {
       responType: 'view',
-      viewTemplatePath: 'pages/addArticel',
+      viewTemplatePath: 'pages/addInformation',
     }
   },
 
@@ -23,7 +23,7 @@ module.exports = {
   fn: async function (inputs) {
 
     return ({
-      title: 'Tambah Artikel',
+      title: 'Tambah Informasi Kesehatan',
     });
 
   }

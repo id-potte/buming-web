@@ -72,10 +72,10 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    patient:{
-      collection: 'patient',
-      via: 'companion'
-    },
+    // patient:{
+    //   collection: 'patient',
+    //   via: 'companion'
+    // },
     
   },
 

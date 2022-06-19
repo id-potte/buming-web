@@ -154,6 +154,11 @@ module.exports = {
       minLength: 3,
       maxLength: 64
     },
+
+    student: {
+      type: 'number',
+      required: true,
+    },
   },
 
 

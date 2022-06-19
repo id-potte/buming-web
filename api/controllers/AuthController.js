@@ -9,7 +9,22 @@ const otpTool = require("otp-without-db");
 const key     = "234sdf435erwrsdf4345345";
 
 module.exports = {
-  cek_phone: function(req, res){
+  cek_phone: async function(req, res){
+    let phone = req.param('nomor');
+    
+    let user = await Student.findOne({phone_number: phone});
+
+    if (user) {
+      return res.json({
+        state: true,
+      });
+    }
+    return res.json({
+      state: false,
+    });
+  },
+
+  cek_phone_otp: function(req, res){
     let phone = req.param('nomor');
     let otp = otpGen.generate(6, { lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false });
 

@@ -1,29 +1,25 @@
 <div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
   <div class="card-header">
-    <%- partial('../partials/buttonBack.ejs', {modul: 'articel' }) %>
+    <%- partial('../partials/buttonBack.ejs', {modul: 'information' }) %>
   </div>
   <div class="card-body">
-    <form action="/articel" method="POST" enctype="multipart/form-data">
+    <form action="/information/<%= information.id %>" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
       <div class="card text-left">
         <div class="card-body">
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="title">Judul</label>
-              <input type="text" class="form-control" name="title" id="title" required="">
+              <input type="text" class="form-control" name="title" id="title" required="" value="<%= information.title %>">
             </div>
             <div class="form-group col-md-12">
               <label for="content">Isi Konten</label>
-              <textarea class="form-control" id="content" name="content" rows="3" required=""></textarea>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="gambar">Gambar</label>
-              <input type="file" class="form-control" id="gambar" name="gambar" required="" accept=".jpg, .png">
+              <textarea class="form-control" id="editor1" name="content" required=""><%= information.content %> </textarea>
             </div>
           </div>
         </div>
         <div class="card-footer">
-          <button type="submit" class="btn btn-info float-right"><i class="fas fa-check-circle"></i> Simpan</button>
+          <button type="submit" class="btn btn-info float-right"><i class="fas fa-check-circle"></i> Simpan Perubahan</button>
         </div>
       </div>
     </form>

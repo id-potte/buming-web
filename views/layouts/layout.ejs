@@ -32,6 +32,8 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
     <!-- General CSS Files -->
+    <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -108,7 +110,7 @@
               <li class="menu-header">Mobile App</li>
               <!-- <li><a class="nav-link" href="/user"><i class="fas fa-user-plus"></i> <span>Pengguna</span></a></li>
               <li><a class="nav-link" href="/config"><i class="fas fa-cog"></i> <span>Config</span></a></li> -->
-              <li><a class="nav-link" href="/articel"><i class="fas fa-tags"></i> <span>Artikel</span></a></li>
+              <li><a class="nav-link" href="/information"><i class="fas fa-tags"></i> <span>Informasi</span></a></li>
             </ul>
     
           </aside>
@@ -304,6 +306,9 @@
     <script src="/js2/datatables.js"></script> -->
     <script src="/js2/scripts.js"></script>
     <script src="/js2/stisla.js"></script>
+    <script>
+      CKEDITOR.replace('editor1');
+    </script>
 
     <!--SCRIPTS-->
     <script src="/dependencies/sails.io.js"></script>

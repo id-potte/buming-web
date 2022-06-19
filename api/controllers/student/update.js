@@ -56,6 +56,7 @@ module.exports = {
       min: 1,
       max: 10
     },
+
   },
 
 

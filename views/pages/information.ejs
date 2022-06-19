@@ -1,6 +1,6 @@
 <div class="card card-warning animate__animated animate__fadeIn animate__slow shadow-lg">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <%- partial('../partials/buttonNew.ejs', {modul: 'articel' }) %>
+        <%- partial('../partials/buttonNew.ejs', {modul: 'information' }) %>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -16,7 +16,7 @@
                 </thead>
                 <tbody>
                     <% var i = 1; %> 
-                    <% articels.forEach(data=> { %>
+                    <% informations.forEach(data=> { %>
                         <tr>
                             <td>
                                 <%= i++ %>
@@ -28,9 +28,9 @@
                                 <%= new Date(data.createdAt).toISOString().slice(0, 10) %>
                             </td>
                             <td class="text-center">
-                                <a href="/articel/<%= data.id %>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                                <a href="/information/<%= data.id %>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                                 <button type="button" class="btn btn-danger btn-sm bthapus" data-kode="<%= data.id %>" data-nama="<%= data.title %>"
-                                    data-route="/articel/"><i class="fa fa-trash"></i></button>
+                                    data-route="/information/"><i class="fa fa-trash"></i></button>
                             </td>
                         </tr>
 

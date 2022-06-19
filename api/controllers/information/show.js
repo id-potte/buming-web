@@ -15,7 +15,7 @@ module.exports = {
   exits: {
     success: {
       responType: 'view',
-      viewTemplatePath: 'pages/editArticel',
+      viewTemplatePath: 'pages/editInformation',
     }
   },
 
@@ -23,15 +23,15 @@ module.exports = {
   fn: async function (inputs) {
 
     var id = this.req.param('id');
-    var articel = await Articel.findOne({id: id});
+    var information = await Information.findOne({id: id});
 
-    if(!articel){
-      return this.res.view('404', {title: 'Artikel'});
+    if(!information){
+      return this.res.view('404', {title: 'Informasi Kesehatan'});
     }
 
     return ({
-      title: 'Edit Artikel',
-      articel,
+      title: 'Edit Informasi Kesehatan',
+      information,
     });
 
   }

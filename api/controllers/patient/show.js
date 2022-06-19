@@ -33,6 +33,7 @@ module.exports = {
     var religion = await Religion.find();
     var education = await Education.find();
     var profession = await Profession.find();
+    var student = await Student.find();
 
     return ({
       title: 'Edit Pasien',
@@ -41,6 +42,7 @@ module.exports = {
       religion,
       education,
       profession,
+      student,
     });
 
   }
