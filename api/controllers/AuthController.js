@@ -14,13 +14,15 @@ module.exports = {
     
     let user = await Student.find({phone_number: phone});
 
-    if (user.phone_number) {
+    if (user[0].phone_number) {
       return res.json({
         state: true,
+        user,
       });
     }
     return res.json({
       state: false,
+      user,
     });
   },
 
