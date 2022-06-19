@@ -62,7 +62,7 @@ module.exports.routes = {
   * not match any of those, it is matched against static assets.             *
   *                                                                          *
   ***************************************************************************/
-  'POST /auth': { action: 'Auth/cek_phone'},
+  'GET /auth/:phone': { action: 'Auth/cek_phone'},
   'POST /otp': { action: 'Auth/cek_otp'},
 
   'GET /csrf/token': { action: 'security/grant-csrf-token' },
