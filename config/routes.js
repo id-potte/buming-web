@@ -67,4 +67,6 @@ module.exports.routes = {
 
   'GET /csrf/token': { action: 'security/grant-csrf-token' },
 
+  'GET /api/v1/auth/:phone': { action: 'Auth/cek_phone'},
+
 };
