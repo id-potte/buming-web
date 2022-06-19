@@ -10,11 +10,11 @@ const key     = "234sdf435erwrsdf4345345";
 
 module.exports = {
   cek_phone: async function(req, res){
-    var phone = req.param('nomor');
+    var phone = req.param('phone');
     
     var user = await Student.findOne({phone_number: phone});
 
-    if (user[0].phone_number) {
+    if (user) {
       return res.json({
         state: true,
         user,
