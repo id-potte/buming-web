@@ -14,7 +14,7 @@ module.exports = {
     
     let user = await Student.find({phone_number: phone});
 
-    if (user) {
+    if (user.phone_number) {
       return res.json({
         state: true,
       });
