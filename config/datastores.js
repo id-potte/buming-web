@@ -53,7 +53,6 @@ module.exports.datastores = {
     adapter: 'sails-postgresql',
     // url: process.env.DATABASE_URL,
     url: 'postgres://lidwiexniutcat:703e7a7635845064686bcd3aead40acdf9deb81adb2cc07e1b563cb6549410db@ec2-52-72-99-110.compute-1.amazonaws.com:5432/d9jpgemd5kguli',
-    // ssl: true,
     ssl: { rejectUnauthorized: false },
   },
 

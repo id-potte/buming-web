@@ -183,45 +183,6 @@
         </div>
       </div>
 
-
-      <!-- Modal add user-->
-      <div class="modal fade" id="modalAddUser" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <form class="needs-validation" novalidate="" method="POST" action="/user">
-              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Tambah</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label>Nama</label>
-                  <select class="form-control" name="username" id="username">
-                    <option value="">-pilih-</option>
-                  </select>
-                  <small class="form-text text-muted">Nomor HP digunakan sebagai <strong>Username</strong>.</small>
-                </div>
-                <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" class="form-control" name="password" id="password" required="">
-                  <input type="hidden" name="access" id="access" required="">
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-icon icon-left btn-info"><i class="fas fa-check"></i>
-                  Simpan</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-
     <!--
         Client-side Templates
         ========================
@@ -315,5 +276,23 @@
     <script src="/js/custom.js"></script>
     <script src="/js/datatables.js"></script>
     <!--SCRIPTS END-->
+
+    <script type="text/javascript">
+      io.socket.on('qr', (data) => {
+        $("#qrcode").attr('src', data);
+      });
+
+      io.socket.on('ready', (msg) => {
+        $("#qr").hide();
+        $("#me").show();
+        $("#pushname").html(msg.pushname);
+        $("#user").html(msg.wid.user);
+      });
+
+      io.socket.on('disconnected', (msg) => {
+        $("#qr").show();
+        $("#me").hide();
+      });
+    </script>
   </body>
 </html>

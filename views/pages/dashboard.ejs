@@ -33,6 +33,27 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="card card-primary animate__animated animate__fadeIn animate__slow shadow-lg">
+    <div class="card-header">
+        Whatsapp Admin
+    </div>
+    <div class="card-body">
+        <div id="me">
+            <h5>Sesi Aktif :</h5>
+            <h6>Nama Akun</h6>
+            <div id="pushname"></div>
+            <h6>Nomor</h6>
+            <div id="user"></div>
+            <hr>
+            <p class="text-small">Pastikan nomor di atas telah logout di perangkat tertaut sebelem melakukan scan ulang QRCode!</p>
+            <button class="btn btn-primary" id="bt-qr">TAMPILKAN QRCODE</button>
+        </div>
+        <div id="qr">
+            <h5>Scan QRCode Di bawah untuk login.</h5>
+            <img src="" alt="loading..." id="qrcode">
+        </div>
+    </div>
 </div>
 <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

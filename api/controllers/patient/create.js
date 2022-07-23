@@ -170,6 +170,15 @@ module.exports = {
 
   fn: async function (inputs) {
 
+    // const number = await sails.helpers.formatNumber(inputs.phone_number);
+
+    // const isReq = await sails.hooks.whatsapp.client.isRegisteredUser(number);
+
+    // if(!isReq){
+    //   this.req.addFlash('msg', '<strong>'+inputs.phone_number+'</strong> Tidak terdaftar di whatsapp.');
+    //   return this.res.redirect('/patient/new');
+    // }
+
     var data = await Patient.create(inputs);
 
     this.req.addFlash('msg', '<strong>Success!</strong> Data bertambah');

@@ -10,6 +10,8 @@ $(document).ready(function () {
     $(".alert").fadeTo(3500, 500).slideUp(300, function () {
         $(".alert").alert('close');
     });
+
+    $("#qr").hide();
 });
 
 $('#modalAdd').on('show.bs.modal', function (event) {
@@ -101,6 +103,19 @@ $('#modalAddUser').on('show.bs.modal', function (event) {
                 html += '<option value="'+response[index].phone_number+'">'+response[index].name+'</option>';
             }
             modal.find('#username').append(html);
+        }
+    });
+});
+
+$("#bt-qr").click(function (e) { 
+    e.preventDefault();
+    $("#me").hide();
+    $("#qr").show();
+    $.ajax({
+        type: "get",
+        url: "/wa/qr",
+        success: function (response) {
+            $("#qrcode").attr('alt', response.state);
         }
     });
 });

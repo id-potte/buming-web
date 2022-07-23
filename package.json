@@ -12,6 +12,7 @@
     "grunt": "1.0.4",
     "otp-generator": "^4.0.0",
     "otp-without-db": "^1.0.4",
+    "qrcode": "^1.5.0",
     "sails": "^1.5.2",
     "sails-hook-flash": "^0.2.2",
     "sails-hook-grunt": "^5.0.0",
@@ -19,7 +20,8 @@
     "sails-hook-orm": "^4.0.0",
     "sails-hook-sockets": "^2.0.0",
     "sails-mysql": "2.0.0",
-    "sails-postgresql": "^4.0.0"
+    "sails-postgresql": "^4.0.0",
+    "whatsapp-web.js": "^1.17.1"
   },
   "devDependencies": {
     "eslint": "5.16.0"
