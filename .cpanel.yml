@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/bumingsi/buming/
+    - /bin/cp app.js $DEPLOYPATH
+    - /bin/cp Gruntfilr.js $DEPLOYPATH
+    - /bin/cp package-lock.json $DEPLOYPATH
+    - /bin/cp package.json $DEPLOYPATH
+    - /bin/cp -R api $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R config $DEPLOYPATH
+    - /bin/cp -R tasks $DEPLOYPATH
+    - /bin/cp -R views $DEPLOYPATH
