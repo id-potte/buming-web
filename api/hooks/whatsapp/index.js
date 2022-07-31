@@ -51,10 +51,12 @@ module.exports = function defineWhatsappHook(sails) {
       client.on('ready', () => {
         sails.log.info('WaClient ready');
         sails.sockets.blast('ready', client.info);
+        
       }); 
 
       client.on('disconnected', (reason) => {
         sails.sockets.blast('disconnected', reason);
+        Wasession.destroy({});
         client.destroy();
         client.initialize();
       });

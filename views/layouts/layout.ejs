@@ -283,15 +283,23 @@
       });
 
       io.socket.on('ready', (msg) => {
-        $("#qr").hide();
-        $("#me").show();
-        $("#pushname").html(msg.pushname);
-        $("#user").html(msg.wid.user);
+        io.socket.post('/api/v1/wasession', { name: msg.pushname, phone: msg.wid.user }, function (resData, jwRes) {
+          $("#qr").hide();
+          $("#me").show();
+          $("#pushname").html(msg.pushname);
+          $("#user").html(msg.wid.user);
+        });
       });
 
       io.socket.on('disconnected', (msg) => {
-        $("#qr").show();
-        $("#me").hide();
+        io.socket.delete('/api/v1/wasession', function (resData, jwRes) {
+          $("#qr").show();
+          $("#me").hide();
+        });
+      });
+
+      io.socket.on('wasession', function(msg){
+        console.log(msg);
       });
     </script>
   </body>
