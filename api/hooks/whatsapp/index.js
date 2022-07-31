@@ -4,7 +4,7 @@
  * @description :: A hook definition.  Extends Sails by adding shadow routes, implicit actions, and/or initialization logic.
  * @docs        :: https://sailsjs.com/docs/concepts/extending-sails/hooks
  */
-const { Client , NoAuth, ClientInfo } = require('whatsapp-web.js');
+const { Client , LocalAuth } = require('whatsapp-web.js');
 var QRCode = require('qrcode');
 
 module.exports = function defineWhatsappHook(sails) {
@@ -25,7 +25,7 @@ module.exports = function defineWhatsappHook(sails) {
         '--disable-gpu'
       ],
     },
-    authStrategy: new NoAuth(),
+    authStrategy: new LocalAuth(),
   });
 
   return {
@@ -51,7 +51,6 @@ module.exports = function defineWhatsappHook(sails) {
       client.on('ready', () => {
         sails.log.info('WaClient ready');
         sails.sockets.blast('ready', client.info);
-        
       }); 
 
       client.on('disconnected', (reason) => {
