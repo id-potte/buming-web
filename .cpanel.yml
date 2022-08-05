@@ -3,6 +3,8 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/bumingsi/sailsjs/
     - /bin/cp app.js $DEPLOYPATH
+    - /bin/cp .sailsrc.js $DEPLOYPATH
+    - /bin/cp .npmrc.js $DEPLOYPATH
     - /bin/cp Gruntfile.js $DEPLOYPATH
     - /bin/cp package-lock.json $DEPLOYPATH
     - /bin/cp package.json $DEPLOYPATH
